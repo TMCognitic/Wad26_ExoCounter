@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "watch": "tsc --watch",
-    "serve": "live-server --port=8080"
+    "watch": "tsc --watch --preserveWatchOutput",
+    "serve": "live-server --port=8080",
+    "dev": "concurrently -n TSC,SERVE -c blue,green \"npm:watch\" \"npm:serve\""
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/TMCognitic/TypescriptBaseProject#readme",
   "devDependencies": {
+    "concurrently": "^10.0.6",
     "live-server": "^1.2.2",
     "typescript": "^7.0.2"
   }
